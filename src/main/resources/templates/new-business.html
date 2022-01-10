@@ -1,0 +1,44 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a business</title>
+    <link th:replace="fragments/header :: bootstrap-css"></link>
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"/>
+</div>
+<h1>Submit a new business</h1>
+<div class="container">
+
+    <form th:action="@{/admin/post-business}" th:method="post" th:object="${businessForm}">
+        <div class="mb-3">
+            <label class="form-label" for="name">Business name:</label>
+            <input class="form-control" th:field="*{name}" type="text"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="description">Description:</label>
+            <input class="form-control" th:field="*{description}" type="text"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="email">Email address:</label>
+            <input class="form-control" th:field="*{email}" type="text"/>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+        <div>
+            <div class="mb-3">
+                <a class="btn btn-primary" href="/admin">Cancel</a>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+</body>
+</html>

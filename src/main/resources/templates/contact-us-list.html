@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact us List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+
+<div sec:authorize="hasRole('ROLE_ADMIN')" class="container">
+    <div th:replace="fragments/header :: header"/>
+    <br>
+    <hr>
+    <h2 style="text-align: center">Contact Us List</h2>
+    <hr>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>MESSAGE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contactUs : ${contactUsList}">
+            <td th:text="${contactUs.id}"></td>
+            <td th:text="${contactUs.name}"></td>
+            <td th:text="${contactUs.email}"></td>
+            <td th:text="${contactUs.message}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <a th:href="@{/}"> Back to Homepage</a>
+    <hr>
+</div>
+
+</body>
+</html>

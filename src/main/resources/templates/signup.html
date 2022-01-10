@@ -1,0 +1,50 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link th:replace="fragments/header :: bootstrap-css"></link>
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"/>
+</div>
+<hr>
+<h1 style="text-align: center">Create an account</h1>
+<hr>
+<div class="container">
+
+    <form th:action="@{/signup}" th:method="post" th:object="${signupForm}">
+        <div class="mb-3">
+            <label class="form-label" for="username">Username:</label>
+            <input class="form-control" th:field="*{username}" type="text"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="password">Password:</label>
+            <input class="form-control" th:field="*{password}" type="password"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="confirmPassword">Confirm password:</label>
+            <input class="form-control" th:field="*{confirmPassword}" type="password"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="email">Email address:</label>
+            <input class="form-control" th:field="*{email}" type="text"/>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+        <div>
+            <div class="mb-3">
+                <a class="btn btn-primary" href="/admin">Cancel</a>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+
+<div sec:authorize="hasRole('ROLE_ADMIN')" class="container">
+    <div th:replace="fragments/header :: header"/>
+    <br>
+    <hr>
+    <h2 style="text-align: center">Update User</h2>
+    <hr>
+    <form action="#" th:action="@{/admin/update-user}" th:object="${user}" method="POST">
+
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{username}"/>
+        <label>Email: </label>
+        <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+        <label>Password: </label>
+        <input type="text" th:field="*{password}" class="form-control mb-4 col-4">
+        <label>Enabled: </label>
+        <input type="text" th:field="*{enabled}" class="form-control mb-4 col-4">
+        <label>Role: </label>
+        <input type="text" th:field="*{role}" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2"> Update User</button>
+    </form>
+    <hr>
+    <a th:href="@{/}"> Back to Homepage</a>
+    <hr>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contact Us</title>
+    <link th:replace="fragments/header :: bootstrap-css">
+</head>
+<body>
+
+<div class="container">
+    <div th:replace="fragments/header :: header"/>
+    <br>
+    <hr>
+    <h2 style="text-align: center">Fill in the form</h2>
+    <hr>
+    <form action="#" th:action="@{/admin/save-contact}" th:object="${contactUs}" method="POST">
+
+        <label>Name: </label>
+        <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"><b>Enter the name</b></p>
+
+        <label>Email: </label>
+        <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"><b>Enter the email</b></p>
+
+        <label>Message: </label>
+        <input type="text" th:field="*{message}" class="form-control mb-4 col-4">
+        <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}"><b>Enter the message</b></p>
+
+        <button type="submit" class="btn btn-info col-2"> Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

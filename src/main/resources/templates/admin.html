@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link th:replace="fragments/header :: bootstrap-css"></link>
+
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"/>
+    <div>
+        <h1>Admin page</h1>
+    </div>
+    <div>
+        <a href="/admin/new-business">Add a new business to the database</a>
+    </div>
+    <div>
+        <a href="/admin/delete-business">Remove an existing business from the database</a>
+    </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link th:replace="fragments/header :: bootstrap-css"></link>
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"/>
+    <br><br>
+    <div sec:authorize="isAuthenticated()">
+        <hr>
+        <a href="discover" class="btn btn-primary">View all businesses</a>
+        <hr>
+        <a href="/admin/list-users" sec:authorize="hasRole('ROLE_ADMIN')" class="btn btn-primary">View List of Users</a><br>
+        <hr>
+        <a href="/admin/list-contact-us" sec:authorize="hasRole('ROLE_ADMIN')" class="btn btn-primary">View List of
+            Contact Us</a>
+        <br>
+        <hr>
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My wallet</title>
+    <link th:replace="fragments/header :: bootstrap-css"></link>
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"/>
+</div>
+<h1>My wallet</h1>
+<div th:if="${!businessList.isEmpty}">
+    <h3>My loyalty programmes</h3>
+    <hr>
+
+    <ul class="list-group" th:each="business: ${businessList}">
+        <li class="list-group-item">
+            <div style="display: inline-block">
+                <h3 th:text="${business.name}" ></h3>
+                <div th:text="${business.description}"></div>
+                <div th:text="${business.email}"></div>
+            </div>
+            <div style="display: inline-block;   margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); padding-left: 10px">
+                <button>Hide</button>
+            </div>
+
+        </li>
+    </ul>
+</div>
+
+
+
+</div>
+<a href="discover">Discover Page</a>
+
+</body>
+</html>
