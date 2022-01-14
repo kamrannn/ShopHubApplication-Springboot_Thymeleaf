@@ -25,4 +25,10 @@ public class ContactUs {
     private String email;
     @NotEmpty(message = "message is mandatory")
     private String message;
+
+    public ContactUs(@NotEmpty(message = "Name is mandatory") String name, @NotEmpty(message = "Email is mandatory") @Email String email, @NotEmpty(message = "message is mandatory") String message) {
+        this.name = name;
+        this.email = email;
+        this.message = message;
+    }
 }

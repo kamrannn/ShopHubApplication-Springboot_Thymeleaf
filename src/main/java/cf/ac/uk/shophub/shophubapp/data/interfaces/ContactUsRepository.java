@@ -8,4 +8,6 @@ public interface ContactUsRepository {
     List<ContactUs> findAllContactUs();
 
     void saveContactUs(ContactUs contactUs);
+
+    void deleteAllContactUs();
 }

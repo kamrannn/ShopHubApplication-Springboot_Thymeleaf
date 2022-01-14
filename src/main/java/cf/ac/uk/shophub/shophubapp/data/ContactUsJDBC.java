@@ -51,4 +51,16 @@ public class ContactUsJDBC implements ContactUsRepository {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void deleteAllContactUs() {
+        try {
+            String deleteContactUsQuery = "delete from contact_us";
+            jdbc.update(deleteContactUsQuery);
+            System.out.println("deleted");
+        } catch (Exception e) {
+            System.out.println("not deleted");
+            return;
+        }
+    }
 }

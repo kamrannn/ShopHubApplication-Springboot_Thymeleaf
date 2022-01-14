@@ -125,9 +125,6 @@ public class AdminController {
             contactUsJDBC.saveContactUs(contactUs);
             return "redirect:/";
         }
-
-/*        contactUsJDBC.saveContactUs(contactUs);
-        return "redirect:/admin/list-contact-us";*/
     }
 
 
